@@ -1,0 +1,167 @@
+:root {
+  --sc-bg: #121212;
+  --sc-text: #e6e6e6;
+  --sc-text-secondary: #a8a8a8;
+  --sc-accent-soft: color-mix(in srgb, var(--sc-accent, #8c31ed) 72%, white);
+}
+
+body {
+  background-color: var(--sc-bg) !important;
+  color: var(--sc-text) !important;
+}
+
+.header {
+  background-color: #000 !important;
+}
+
+/* Progress bar and follow buttons */
+.playbackTimeline__progressBar,
+.sc-button-cta {
+  background-color: var(--sc-accent, #8c31ed) !important;
+  border-color: var(--sc-accent, #8c31ed) !important;
+}
+
+.playbackTimeline__progressHandle {
+  border-color: var(--sc-accent-soft) !important;
+}
+
+/* Play buttons on tiles and lists */
+.sc-button-play {
+  background-color: var(--sc-accent, #8c31ed) !important;
+}
+
+.sc-button-play svg {
+  color: var(--sc-bg) !important;
+}
+
+/* Track titles and artist names */
+a.playableTile__heading,
+a.soundTitle__title,
+a.userBadge__usernameLink {
+  color: var(--sc-accent, #8c31ed) !important;
+}
+
+/* Playlist track list: hovered and playing track */
+.trackItem:not(.m-disabled):hover .trackItem__trackTitle,
+.trackItem:not(.m-disabled).active .trackItem__content,
+.trackItem:not(.m-disabled).active .trackItem__number,
+.trackItem:not(.m-disabled).active .trackItem__separator,
+.trackItem:not(.m-disabled).active .trackItem__trackTitle,
+.trackItem:not(.m-disabled).active .trackItem__username {
+  color: var(--sc-accent, #8c31ed) !important;
+}
+
+/* Liked and reposted buttons */
+.sc-button-like.sc-button-selected,
+.sc-button-repost.sc-button-selected,
+.sc-button-like.sc-button-selected svg,
+.sc-button-repost.sc-button-selected svg {
+  color: var(--sc-accent, #8c31ed) !important;
+}
+
+/* Player bar */
+.playControls__bg,
+.playControls__inner {
+  background-color: var(--sc-bg) !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.playControls {
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+.playControls__elements button,
+.playControls__elements .sc-button {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.playControls__elements button svg,
+.playControls__elements .sc-button svg {
+  color: var(--sc-accent, #8c31ed) !important;
+}
+
+/* Play/pause button: solid circle, must come after the rules above */
+.playControls__elements button.playControls__play {
+  background-color: var(--sc-accent, #8c31ed) !important;
+  border: none !important;
+}
+
+.playControls__elements button.playControls__play svg {
+  color: var(--sc-bg) !important;
+}
+
+/* Header menu */
+.header__navMenuItem[data-menu-name="home"],
+.header__navMenuItem[data-menu-name="stream"],
+.header__navMenuItem[data-menu-name="library"] {
+  color: var(--sc-text-secondary) !important;
+}
+
+.header__navMenuItem[data-menu-name="home"]:hover,
+.header__navMenuItem[data-menu-name="stream"]:hover,
+.header__navMenuItem[data-menu-name="library"]:hover {
+  color: var(--sc-accent, #8c31ed) !important;
+}
+
+.header__navMenuItem.selected {
+  color: var(--sc-accent, #8c31ed) !important;
+  border-bottom-color: var(--sc-accent, #8c31ed) !important;
+}
+
+.header__forArtistsButton,
+.uploadButton__title,
+.header .creatorSubscriptionsButton.header__button {
+  color: var(--sc-accent-soft) !important;
+}
+
+/* Artist profile tabs */
+.profileTabs .g-tabs-link:hover {
+  color: var(--sc-accent, #8c31ed) !important;
+}
+
+.profileTabs .g-tabs-link.active,
+.profileTabs .g-tabs-link.selected,
+.profileTabs .g-tabs-link[aria-current] {
+  color: var(--sc-accent, #8c31ed) !important;
+  border-bottom-color: var(--sc-accent, #8c31ed) !important;
+}
+
+/* Notification dot */
+.notificationIcon__badge .newItemBadge.newItems__some {
+  background-color: var(--sc-accent, #8c31ed) !important;
+}
+
+/* Waveform on a track page */
+rect[fill*="contrastText"] {
+  fill: var(--sc-accent, #8c31ed) !important;
+}
+
+rect[fill*="contrast-light"] {
+  fill: color-mix(in srgb, var(--sc-accent, #8c31ed) 60%, transparent) !important;
+}
+
+rect[fill*="contrast-dark"] {
+  fill: color-mix(in srgb, var(--sc-accent, #8c31ed) 35%, transparent) !important;
+}
+
+div[role="presentation"][style*="contrast-contrastText"]:not([style*="Channel"]) {
+  background: var(--sc-accent, #8c31ed) !important;
+}
+
+div[role="presentation"][style*="contrastTextChannel"] {
+  background: color-mix(in srgb, var(--sc-accent, #8c31ed) 50%, transparent) !important;
+}
+
+/* Ring around the big play/pause button on a track page */
+button[aria-label="Pausar"],
+button[aria-label="Reproducir"] {
+  outline-color: var(--sc-accent, #8c31ed) !important;
+}
+
+/* Waveform in lists and search results (canvas, recolored by content.js) */
+.waveform canvas:not(.waveformCommentsNode) {
+  filter: url(#tintcloud-orange) !important;
+}
