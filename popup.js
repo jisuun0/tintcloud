@@ -134,12 +134,7 @@ function openLink(url) {
 
 $("github").addEventListener("click", () => openLink(REPO_URL));
 
-$("report").addEventListener("click", () => {
-  const { version } = browser.runtime.getManifest();
-  const firefox = navigator.userAgent.match(/Firefox\/([\d.]+)/)?.[1] ?? "unknown";
-  const body = `What happened?\n\n\n---\nTintCloud ${version}, Firefox ${firefox}`;
-  openLink(`${REPO_URL}/issues/new?body=${encodeURIComponent(body)}`);
-});
+$("report").addEventListener("click", () => openLink(`${REPO_URL}/issues/new`));
 
 browser.storage.local.get("accent").then((res) => {
   setFromRgb(fromHex(res.accent || DEFAULT_ACCENT));

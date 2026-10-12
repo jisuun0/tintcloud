@@ -146,3 +146,43 @@ input[type="number"] {
 .link-btn:hover {
   filter: brightness(1.15);
 }
+
+/* Touch screens (Firefox for Android) */
+@media (pointer: coarse) {
+  body {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  #sv {
+    height: 180px;
+  }
+
+  #hue {
+    height: 18px;
+    border-radius: 9px;
+  }
+
+  #sv-thumb,
+  #hue-thumb {
+    width: 22px;
+    height: 22px;
+  }
+
+  .fields input {
+    padding: 9px 2px;
+    font-size: 14px;
+  }
+
+  #apply {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .link-btn {
+    padding: 11px 4px;
+    font-size: 14px;
+  }
+}

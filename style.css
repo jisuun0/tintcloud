@@ -1,75 +1,137 @@
 :root {
-  --sc-bg: #121212;
+  --sc-bg: #000;
   --sc-text: #e6e6e6;
   --sc-text-secondary: #a8a8a8;
-  --sc-accent-soft: color-mix(in srgb, var(--sc-accent, #8c31ed) 72%, white);
+  --tc-accent: var(--sc-accent, #8c31ed);
+  --tc-accent-soft: color-mix(in srgb, var(--tc-accent) 72%, white);
+}
+
+html,
+body {
+  background-color: var(--sc-bg) !important;
 }
 
 body {
-  background-color: var(--sc-bg) !important;
   color: var(--sc-text) !important;
 }
+
+/* soundcloud's orange variable (upload quota bar, etc.) */
+html,
+body,
+.theme-dark {
+  --special-color: var(--tc-accent) !important;
+}
+
+/* ---------- header ---------- */
 
 .header {
   background-color: #000 !important;
 }
 
-/* Progress bar and follow buttons */
-.playbackTimeline__progressBar,
+.header__navMenuItem[data-menu-name="home"],
+.header__navMenuItem[data-menu-name="stream"],
+.header__navMenuItem[data-menu-name="library"] {
+  color: var(--sc-text-secondary) !important;
+}
+
+.header__navMenuItem[data-menu-name="home"]:hover,
+.header__navMenuItem[data-menu-name="stream"]:hover,
+.header__navMenuItem[data-menu-name="library"]:hover {
+  color: var(--tc-accent) !important;
+}
+
+.header__navMenuItem.selected {
+  color: var(--tc-accent) !important;
+  border-bottom-color: var(--tc-accent) !important;
+}
+
+.header__forArtistsButton,
+.uploadButton__title,
+.header .creatorSubscriptionsButton.header__button {
+  color: var(--tc-accent) !important;
+}
+
+.headerSearch__input {
+  background-color: #121212 !important;
+  border: 1px solid #3a3a3a !important;
+}
+
+input,
+textarea {
+  caret-color: var(--tc-accent) !important;
+}
+
+.notificationIcon__badge .newItemBadge.newItems__some {
+  background-color: var(--tc-accent) !important;
+}
+
+/* ---------- buttons, titles, links ---------- */
+
 .sc-button-cta {
-  background-color: var(--sc-accent, #8c31ed) !important;
-  border-color: var(--sc-accent, #8c31ed) !important;
+  background-color: var(--tc-accent) !important;
+  border-color: var(--tc-accent) !important;
 }
 
-.playbackTimeline__progressHandle {
-  border-color: var(--sc-accent-soft) !important;
-}
-
-/* Play buttons on tiles and lists */
 .sc-button-play {
-  background-color: var(--sc-accent, #8c31ed) !important;
+  background-color: var(--tc-accent) !important;
 }
 
 .sc-button-play svg {
   color: var(--sc-bg) !important;
 }
 
-/* Track titles and artist names */
 a.playableTile__heading,
 a.soundTitle__title,
 a.userBadge__usernameLink {
-  color: var(--sc-accent, #8c31ed) !important;
+  color: var(--tc-accent) !important;
 }
 
-/* Playlist track list: hovered and playing track */
+.sc-button-like.sc-button-selected,
+.sc-button-repost.sc-button-selected,
+.sc-button-like.sc-button-selected svg,
+.sc-button-repost.sc-button-selected svg {
+  color: var(--tc-accent) !important;
+}
+
 .trackItem:not(.m-disabled):hover .trackItem__trackTitle,
 .trackItem:not(.m-disabled).active .trackItem__content,
 .trackItem:not(.m-disabled).active .trackItem__number,
 .trackItem:not(.m-disabled).active .trackItem__separator,
 .trackItem:not(.m-disabled).active .trackItem__trackTitle,
 .trackItem:not(.m-disabled).active .trackItem__username {
-  color: var(--sc-accent, #8c31ed) !important;
+  color: var(--tc-accent) !important;
 }
 
-/* Liked and reposted buttons */
-.sc-button-like.sc-button-selected,
-.sc-button-repost.sc-button-selected,
-.sc-button-like.sc-button-selected svg,
-.sc-button-repost.sc-button-selected svg {
-  color: var(--sc-accent, #8c31ed) !important;
+.profileTabs .g-tabs-link:hover,
+.profileTabs .g-tabs-link.active,
+.profileTabs .g-tabs-link.selected,
+.profileTabs .g-tabs-link[aria-current] {
+  color: var(--tc-accent) !important;
 }
 
-/* Player bar */
+.profileTabs .g-tabs-link.active,
+.profileTabs .g-tabs-link.selected,
+.profileTabs .g-tabs-link[aria-current] {
+  border-bottom-color: var(--tc-accent) !important;
+}
+
+.footer__localeSelector .localeSelector_language,
+.quotaMeter__link {
+  color: var(--tc-accent) !important;
+}
+
+/* ---------- player bar ---------- */
+
+.playControls {
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
 .playControls__bg,
 .playControls__inner {
   background-color: var(--sc-bg) !important;
   box-shadow: none !important;
   border: none !important;
-}
-
-.playControls {
-  border-top: none !important;
-  box-shadow: none !important;
 }
 
 .playControls__elements button,
@@ -80,12 +142,12 @@ a.userBadge__usernameLink {
 
 .playControls__elements button svg,
 .playControls__elements .sc-button svg {
-  color: var(--sc-accent, #8c31ed) !important;
+  color: var(--tc-accent) !important;
 }
 
-/* Play/pause button: solid circle, must come after the rules above */
+/* has to come after the two rules above */
 .playControls__elements button.playControls__play {
-  background-color: var(--sc-accent, #8c31ed) !important;
+  background-color: var(--tc-accent) !important;
   border: none !important;
 }
 
@@ -93,75 +155,141 @@ a.userBadge__usernameLink {
   color: var(--sc-bg) !important;
 }
 
-/* Header menu */
-.header__navMenuItem[data-menu-name="home"],
-.header__navMenuItem[data-menu-name="stream"],
-.header__navMenuItem[data-menu-name="library"] {
-  color: var(--sc-text-secondary) !important;
+.playbackTimeline__progressBar {
+  background-color: var(--tc-accent) !important;
+  border-color: var(--tc-accent) !important;
 }
 
-.header__navMenuItem[data-menu-name="home"]:hover,
-.header__navMenuItem[data-menu-name="stream"]:hover,
-.header__navMenuItem[data-menu-name="library"]:hover {
-  color: var(--sc-accent, #8c31ed) !important;
+.playbackTimeline__progressHandle {
+  border-color: var(--tc-accent-soft) !important;
 }
 
-.header__navMenuItem.selected {
-  color: var(--sc-accent, #8c31ed) !important;
-  border-bottom-color: var(--sc-accent, #8c31ed) !important;
-}
+/* ---------- waveforms ---------- */
 
-.header__forArtistsButton,
-.uploadButton__title,
-.header .creatorSubscriptionsButton.header__button {
-  color: var(--sc-accent-soft) !important;
-}
-
-/* Artist profile tabs */
-.profileTabs .g-tabs-link:hover {
-  color: var(--sc-accent, #8c31ed) !important;
-}
-
-.profileTabs .g-tabs-link.active,
-.profileTabs .g-tabs-link.selected,
-.profileTabs .g-tabs-link[aria-current] {
-  color: var(--sc-accent, #8c31ed) !important;
-  border-bottom-color: var(--sc-accent, #8c31ed) !important;
-}
-
-/* Notification dot */
-.notificationIcon__badge .newItemBadge.newItems__some {
-  background-color: var(--sc-accent, #8c31ed) !important;
-}
-
-/* Waveform on a track page */
+/* track page (svg) */
 rect[fill*="contrastText"] {
-  fill: var(--sc-accent, #8c31ed) !important;
-}
-
-rect[fill*="contrast-light"] {
-  fill: color-mix(in srgb, var(--sc-accent, #8c31ed) 60%, transparent) !important;
-}
-
-rect[fill*="contrast-dark"] {
-  fill: color-mix(in srgb, var(--sc-accent, #8c31ed) 35%, transparent) !important;
+  fill: var(--tc-accent) !important;
 }
 
 div[role="presentation"][style*="contrast-contrastText"]:not([style*="Channel"]) {
-  background: var(--sc-accent, #8c31ed) !important;
+  background: var(--tc-accent) !important;
 }
 
 div[role="presentation"][style*="contrastTextChannel"] {
-  background: color-mix(in srgb, var(--sc-accent, #8c31ed) 50%, transparent) !important;
+  background: color-mix(in srgb, var(--tc-accent) 50%, transparent) !important;
 }
 
-/* Ring around the big play/pause button on a track page */
 button[aria-label="Pausar"],
 button[aria-label="Reproducir"] {
-  outline-color: var(--sc-accent, #8c31ed) !important;
+  outline-color: var(--tc-accent) !important;
 }
 
-/* Waveform in lists and search results (canvas, recolored by content.js) */
+/* lists and search results (canvas, filter comes from content.js) */
 .waveform canvas:not(.waveformCommentsNode) {
   filter: url(#tintcloud-orange) !important;
+}
+
+/* ---------- comments ---------- */
+
+[class*="MuiChip-colorSecondary"] {
+  background-color: color-mix(in srgb, var(--tc-accent) 28%, transparent) !important;
+}
+
+[class*="MuiChip-colorSecondary"] .MuiTypography-root,
+.MuiTypography-body a[href^="https://soundcloud.com/"],
+.MuiTypography-body a[href^="/"] {
+  color: var(--tc-accent-soft) !important;
+}
+
+/* ---------- artist panel ---------- */
+
+a[href*="/you/insights"] svg path {
+  stroke: var(--tc-accent) !important;
+}
+
+/* ---------- search results ---------- */
+
+.l-search,
+.l-search .l-fixed-top,
+.searchTitle,
+.searchTitle__text {
+  background-color: var(--sc-bg) !important;
+}
+
+/* ---------- mobile site ---------- */
+
+[class*="LayoutWrapper_AppContainer__"],
+[class*="LayoutWrapper_AppBody__"],
+[class*="Footer_Footer__"],
+[class*="MiniPlayer_MiniPlayer__"] {
+  background-color: var(--sc-bg) !important;
+}
+
+[class*="Header_Position__"],
+[class*="Header_Container__"] {
+  background-color: #000 !important;
+}
+
+nav:has([class*="NavBar_NavBarList__"]) {
+  background-color: var(--sc-bg) !important;
+}
+
+[class*="NavBar_NavBarLinkTitleActive__"],
+[class*="NavBar_IconLightColor__"],
+[class*="Information_CellTitle__"] {
+  color: var(--tc-accent) !important;
+}
+
+[class*="Button_Primary__"] {
+  background-color: var(--tc-accent) !important;
+  border-color: var(--tc-accent) !important;
+}
+
+/* big play and shuffle buttons */
+[class*="ControlButton_ControlButton__"] {
+  background-color: var(--tc-accent) !important;
+  color: var(--sc-bg) !important;
+}
+
+/* mini player */
+[class*="MiniPlayer_MiniPlayerProgressBar__"] {
+  accent-color: var(--tc-accent);
+}
+
+[class*="MiniPlayer_MiniPlayerProgressBar__"]::-moz-progress-bar {
+  background-color: var(--tc-accent) !important;
+}
+
+[class*="MiniPlayer_MiniPlayerBtn__"],
+[class*="MiniPlayer_MiniPlayerControls__"] [class*="IconButton_IconButton__"] {
+  color: var(--tc-accent) !important;
+}
+
+/* full player */
+[class*="FullPlayer_FullPlayerWaveform__"] canvas {
+  filter: url(#tintcloud-orange);
+}
+
+[class*="FullPlayer_FullPlayerBtn__"] {
+  color: var(--tc-accent) !important;
+}
+
+button[class*="FullPlayer_FullPlayerPause__"] {
+  background-color: var(--tc-accent) !important;
+  color: var(--sc-bg) !important;
+  border-radius: 50% !important;
+}
+
+[class*="FullPlayer_FullPlayerCurrentPosition__"] {
+  color: var(--tc-accent-soft) !important;
+}
+
+/* search screen */
+[class*="SearchBar_SearchBar__"] {
+  background-color: #121212 !important;
+  border: 1px solid #3a3a3a !important;
+}
+
+[class*="Tabs_TabNavItemActive__"] {
+  border-bottom-color: var(--tc-accent) !important;
 }
